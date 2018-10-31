@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/webjars/bootstrap/3.0.0/css/bootstrap.css}" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <div class="row" style="margin-top: 50px">
+        <div class="col-md-2">
+            <h3>管理员</h3>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-5">
+            <nav>
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="#">首页</a></li>
+                    <li role="presentation"><a href="#">点播</a></li>
+                    <li role="presentation"><a href="#">直播</a></li>
+                    <li role="presentation"><a href="#">关于</a></li>
+                    <li role="presentation"><a href="#">设置</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            语言 <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">英语</a></li>
+                            <li><a href="#">中文</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-2" style="text-align: center">
+            <a href="#">登陆</a>
+        </div>
+    </div>
+    <div class="row">
+        <center>
+            <div id="myCarousel" class="carousel slide" style="width: 30%">
+                <!-- 轮播（Carousel）指标 -->
+                <!--<ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>-->
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item" th:each="video:${videos}">
+                        <img th:src="${video.thumbnailurl}" th:alt="${video.name}">
+                    </div>
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </center>
+    </div>
+</div>
+
+<!-- js文件放在文档末尾加快页面加载速度 -->
+<script type="text/javascript" th:src="@{/webjars/jquery/1.9.0/jquery.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.0.0/js/bootstrap.js}"></script>
+<script>
+    $($(".item")[0]).addClass("active");
+</script>
+</body>
+</html>
