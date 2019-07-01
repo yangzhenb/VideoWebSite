@@ -12,5 +12,6 @@ public class TankApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TankApplication.class, args);
+		System.out.println("测试创建分支修改之后合并分支到主分支（最安全的提交方式）");
 	}
 }
